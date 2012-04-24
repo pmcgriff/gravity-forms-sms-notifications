@@ -24,7 +24,7 @@ credits to use this plugin.
 
 * [Gravity Forms](http://www.gravityforms.com/) 1.6.3 or higher
 
-* A [Mediaburst SMS API Account](http://www.mediaburst.co.uk/api/?utm_source=wordpress&utm_medium=plugin&utm_campaign=contact-form-7-sms)
+* A [Mediaburst SMS API Account](http://www.mediaburst.co.uk/api/?utm_source=wordpress&utm_medium=plugin&utm_campaign=gravityforms-sms)
 
 == Installation ==
 
@@ -36,7 +36,7 @@ credits to use this plugin.
 
 = What is a Mediaburst username and password? = 
 
-To send SMS you will need to sign up for a [Mediaburst SMS API Account](http://www.mediaburst.co.uk/api/?utm_source=wordpress&utm_medium=plugin&utm_campaign=contact-form-7-sms)
+To send SMS you will need to sign up for a [Mediaburst SMS API Account](http://www.mediaburst.co.uk/api/?utm_source=wordpress&utm_medium=plugin&utm_campaign=gravityforms-sms)
 and purchase some SMS credits.  When you sign up you'll be given a username
 and password to put in these boxes.
 
