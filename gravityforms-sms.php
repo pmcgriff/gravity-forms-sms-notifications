@@ -3,7 +3,7 @@
 Plugin Name: Gravity Forms - SMS Notifications
 Plugin URI: http://www.mediaburst.co.uk/
 Description: Receive an SMS text notification on your mobile phone when someone submits a Gravity Form on your website.
-Version: 0.0.1
+Version: 1.0.0
 Author: Mediaburst
 Author URI: http://www.mediaburst.co.uk/
 */
