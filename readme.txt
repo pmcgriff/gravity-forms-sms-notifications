@@ -6,7 +6,7 @@ Tags: SMS, Mediaburst, Gravity Forms, Text Message
 Text Domain: gravityforms_sms
 Requires at least: 3.0.0
 Tested up to: 3.3.2
-Stable tag: 1.5.3
+Stable tag: 1.0.0
 
 Works with the Gravity Forms plugin to send SMS notifications when somebody 
 submits your contact form. 
