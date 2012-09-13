@@ -6,7 +6,7 @@ Tags: SMS, Mediaburst, Gravity Forms, Text Message
 Text Domain: gravityforms_sms
 Requires at least: 3.0.0
 Tested up to: 3.3.2
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 
 Works with the Gravity Forms plugin to send SMS notifications when somebody 
 submits your contact form. 
@@ -59,6 +59,9 @@ of Ireland number would be entered 353870123456.
 2. Successful receipt of a text message.
 
 == Changelog ==
+
+= 1.0.1 =
+* Fixed an error where sometimes the plugin would fail on a missing class 'RGForms' if Gravity Forms was not loaded.
 
 = 1.0.0 =
 * Initial release.
