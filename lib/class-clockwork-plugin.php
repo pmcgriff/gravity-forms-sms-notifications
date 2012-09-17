@@ -160,7 +160,7 @@ abstract class Clockwork_Plugin {
   public function setup_admin_message() {
     // Don't bother showing the "You need to set your Clockwork options" message if it's that form we're viewing
     if( !isset( $this->clockwork ) && ( get_current_screen()->base != 'toplevel_page_clockwork_options' ) ) {
-      $this->show_admin_message('You need to set your <a href="/wp-admin/admin.php?page=clockwork_options">Clockwork options</a> before you can use ' . $this->plugin_name . '.');
+      $this->show_admin_message('You need to set your <a href="' . site_url() . '/wp-admin/admin.php?page=clockwork_options">Clockwork options</a> before you can use ' . $this->plugin_name . '.');
     }  
   }
   

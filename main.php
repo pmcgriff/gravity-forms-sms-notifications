@@ -59,6 +59,8 @@ class Clockwork_GravityForms_Plugin extends Clockwork_Plugin {
    * @author James Inman
    */
   public function setup_admin_init() {
+    parent::setup_admin_init();
+    
   	register_setting( 'clockwork_gravityforms', 'clockwork_gravityforms', array( &$this, 'validate_options' ) );
     add_settings_section( 'clockwork_gravityforms', __('Default Settings', 'clockwork_gravityforms'), array( &$this, 'settings_header' ), 'clockwork_gravityforms' );
   	add_settings_field( 'default_to', __('Send To Number', 'clockwork_gravityforms'), array( &$this, 'settings_default_to' ), 'clockwork_gravityforms', 'clockwork_gravityforms' );
