@@ -35,7 +35,7 @@ abstract class Clockwork_Plugin {
   /**
    * Version of the Clockwork Wordpress wrapper
    */
-  const VERSION = '1.0.0';
+  const VERSION = '1.0.1';
 	/**
 	 * URL to signup for a new Clockwork account
 	 */
@@ -232,7 +232,7 @@ abstract class Clockwork_Plugin {
    * @return void
    * @author James Inman
    */
-  public function setup_admin_init() {  
+  public function setup_admin_init() {
     register_setting( 'clockwork_options', 'clockwork_options', array( $this, 'clockwork_options_validate' ) );
     add_settings_section( 'clockwork_api_keys', 'API Key', array( $this, 'settings_api_key_text' ), 'clockwork' );
     add_settings_field( 'clockwork_api_key', 'Your API Key', array( $this, 'settings_api_key_input' ), 'clockwork', 'clockwork_api_keys' );    
