@@ -6,7 +6,7 @@
 * @copyright   Mediaburst Ltd 2012
 * @license     ISC
 * @link        http://www.clockworksms.com
-* @version     1.1
+* @version     1.3.0
 */
 
 if ( !class_exists('ClockworkException') ) {
@@ -24,30 +24,35 @@ class Clockwork {
   /*
   * Version of this class
   */
-  const VERSION           = '1.1.0';
+  const VERSION           = '1.3.0';
 
   /**
   * All Clockwork API calls start with BASE_URL
+  * @author  Martin Steel
   */
   const API_BASE_URL      = 'api.clockworksms.com/xml/';
 
   /**
   * string to append to API_BASE_URL to check authentication
+  * @author  Martin Steel
   */
   const API_AUTH_METHOD   = 'authenticate';
 
   /**
   * string to append to API_BASE_URL for sending SMS
+  * @author  Martin Steel
   */
   const API_SMS_METHOD    = 'sms';
 
   /**
   * string to append to API_BASE_URL for checking message credit
+  * @author  Martin Steel
   */
   const API_CREDIT_METHOD = 'credit';
 
   /**
   * string to append to API_BASE_URL for checking account balance
+  * @author  Martin Steel
   */
   const API_BALANCE_METHOD = 'balance';
 
@@ -55,6 +60,7 @@ class Clockwork {
   * Clockwork API Key
   * 
   * @var string
+  * @author  Martin Steel
   */
   public $key;
 
@@ -64,6 +70,7 @@ class Clockwork {
   * If this is not set, SSL will be used where PHP supports it
   *
   * @var bool
+  * @author  Martin Steel
   */
   public $ssl;
 
@@ -71,6 +78,7 @@ class Clockwork {
   * Proxy server hostname (Optional)
   *
   * @var string
+  * @author  Martin Steel
   */
   public $proxy_host;
 
@@ -78,6 +86,7 @@ class Clockwork {
   * Proxy server port (Optional)
   *
   * @var integer
+  * @author  Martin Steel
   */
   public $proxy_port;
 
@@ -85,6 +94,7 @@ class Clockwork {
   * From address used on text messages
   *
   * @var string (11 characters or 12 numbers)
+  * @author  Martin Steel
   */
   public $from;
 
@@ -92,6 +102,7 @@ class Clockwork {
   * Allow long SMS messages (Cost up to 3 credits)
   *
   * @var bool
+  * @author  Martin Steel
   */
   public $long;
 
@@ -99,6 +110,7 @@ class Clockwork {
   * Truncate message text if it is too long
   *
   * @var bool
+  * @author  Martin Steel
   */
   public $truncate;
 
@@ -106,6 +118,7 @@ class Clockwork {
   * Enables various logging of messages when true.
   *
   * @var bool
+  * @author  Martin Steel
   */
   public $log;
 
@@ -116,6 +129,7 @@ class Clockwork {
   *      'error'     - Return an error (Messasge is not sent)
   *      'remove'    - Remove the invalid character(s)
   *      'replace'   - Replace invalid characters where possible, remove others 
+  * @author  Martin Steel
   */
   public $invalid_char_action;
 
@@ -124,6 +138,7 @@ class Clockwork {
   *
   * @param   string  key         Your Clockwork API Key
   * @param   array   options     Optional parameters for sending SMS
+  * @author  Martin Steel
   */
   public function __construct($key, array $options = array()) {
     if (empty($key)) {
@@ -146,6 +161,7 @@ class Clockwork {
   * Send some text messages
   * 
   *
+  * @author  Martin Steel
   */
   public function send(array $sms) {
     if (!is_array($sms)) {
@@ -297,6 +313,7 @@ class Clockwork {
   *
   * @return  integer   SMS credits remaining
   * @deprecated Use checkBalance() instead
+  * @author  Martin Steel
   */
   public function checkCredit() {
     // Create XML doc for request
@@ -344,6 +361,7 @@ class Clockwork {
   * Check your account balance
   *
   * @return  array   Array of account balance: 
+  * @author  Martin Steel
   */
   public function checkBalance() {
     // Create XML doc for request
@@ -404,6 +422,7 @@ class Clockwork {
   * Check whether the API Key is valid
   *
   * @return  bool    True indicates a valid key
+  * @author  Martin Steel
   */
   public function checkKey() {
     // Create XML doc for request
@@ -454,6 +473,7 @@ class Clockwork {
   * @param   string   data   Content of HTTP POST
   *
   * @return  string          Response from Clockwork
+  * @author  Martin Steel
   */
   protected function postToClockwork($method, $data) {
     if ($this->log) {
@@ -486,6 +506,7 @@ class Clockwork {
   * @param   string url      URL to send to
   * @param   string data     Data to POST
   * @return  string          Response returned by server
+  * @author  Martin Steel
   */
   protected function xmlPost($url, $data) {
     if(extension_loaded('curl')) {
@@ -554,6 +575,7 @@ class Clockwork {
   * any requests.
   *
   * @return bool     True if SSL is supported
+  * @author  Martin Steel
   */
   protected function sslSupport() {
     $ssl = false;
@@ -574,6 +596,7 @@ class Clockwork {
   * @param   string  xml     An XML formatted string
   *
   * @return  void
+  * @author  Martin Steel
   */
   protected function logXML($log_msg, $xml) {
     // Tidy if possible
@@ -593,14 +616,28 @@ class Clockwork {
     error_log("Clockwork $log_msg: $xml");
   }
 
-  /*
+  /**
   * Check if an array is associative
   *
   * @param   array $array Array to check
-  * @return  bool    
+  * @return  bool
+  * @author  Martin Steel
   */
-  function is_assoc($array) {
+  protected function is_assoc($array) {
     return (bool)count(array_filter(array_keys($array), 'is_string'));
+  }
+  
+  /**
+   * Check if a number is a valid MSISDN
+   *
+   * @param string $val Value to check
+   * @return bool True if valid MSISDN
+   * @author James Inman
+   * @since 1.3.0
+   * @todo Take an optional country code and check that the number starts with it
+   */
+  public static function is_valid_msisdn($val) {
+    return preg_match( '/^[1-9][0-9]{10,14}$/', $val );
   }
 
 }

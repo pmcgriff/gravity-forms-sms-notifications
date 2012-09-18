@@ -5,8 +5,8 @@ Contributors: mediaburst, jamesinman
 Tags: SMS, Clockwork, Clockwork SMS, Mediaburst, Contact Form 7, Text Message
 Text Domain: wpcf7_sms
 Requires at least: 3.0.0
-Tested up to: 3.3.1
-Stable tag: 2.0.0
+Tested up to: 3.4.2
+Stable tag: 2.0.3
 
 Works with the Gravity Forms plugin to send SMS notifications when somebody 
 submits your contact form, using the Clockwork API. 
@@ -64,6 +64,15 @@ of Ireland number would be entered 353870123456.
 1. SMS options for Gravity Forms.
 
 == Changelog ==
+
+= 2.0.3 = 
+* Update to use latest version of Clockwork wrappers.
+
+= 2.0.2 = 
+* Fixed an issue where main Clockwork settings would not load if you didn't have any other Clockwork plugins installed.
+
+= 2.0.1 =
+* Fixed issue with setting Clockwork options when your Wordpress installation is not in the root directory.
 
 = 2.0.0 =
 * Compatible with Clockwork API.
