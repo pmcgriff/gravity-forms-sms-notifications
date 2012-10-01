@@ -3,7 +3,7 @@
 Plugin Name: Gravity Forms - Clockwork SMS
 Plugin URI: http://wordpress.org/extend/plugins/gravity-forms-sms-notifications/
 Description: Send SMS notifications when somebody submits your contact form
-Version: 2.0.0
+Version: 2.1.0
 Author: Mediaburst
 Author URI: http://www.mediaburst.co.uk/
 */
@@ -23,7 +23,7 @@ ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFT
 */
 
 // Version of the Clockwork plugin in use
-$GLOBALS['clockwork_plugins'][ basename( dirname( __FILE__ ) ) ] = '1.0.0';
+$GLOBALS['clockwork_plugins'][ basename( dirname( __FILE__ ) ) ] = '1.0.1';
 
 if( !function_exists( 'clockwork_loader' ) ) {
 
