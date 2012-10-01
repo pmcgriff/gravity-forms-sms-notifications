@@ -169,7 +169,7 @@ class Clockwork_GravityForms_Plugin extends Clockwork_Plugin {
         $clockwork = new WordPressClockwork( $options['api_key'] );
         $messages = array();
         foreach( $phone as $to ) {
-          $messages[] = array( 'to' => $to, 'message' => $message );          
+          $messages[] = array( 'from' => $options['from'], 'to' => $to, 'message' => $message );          
         }
         $result = $clockwork->send( $messages );
       } catch( ClockworkException $e ) {
@@ -180,7 +180,6 @@ class Clockwork_GravityForms_Plugin extends Clockwork_Plugin {
     }
 		
   }
-  
   
   /**
    * Convert settings from v1.x of the plugin
