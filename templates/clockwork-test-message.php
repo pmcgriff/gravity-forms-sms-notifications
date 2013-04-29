@@ -2,25 +2,19 @@
   <div class="left-content">
       
     <div class="icon32"><img src="<?php echo plugins_url( 'images/logo_32px_32px.png', dirname( __FILE__ ) ); ?>" /></div>
-    <h2>Clockwork SMS Options</h2>
+    <h2>Clockwork SMS – Send A Test Message</h2>
     
-    <form method="post" action="options.php" id="clockwork_options_form">
+    <?php if( $_GET['to'] == '' ) { ?>
+    <p>You need to enter a mobile number to send a test to.</p>
+    <?php } else { ?>
     
-    <?php
-    foreach( array_unique( get_settings_errors( 'clockwork_options' ) ) as $error ) {
-      if( $error['type'] == 'updated' ) {
-        print '<div id="message" class="updated fade"><p><strong>' . $error['message'] . '</strong></p></div>';        
-      } else {
-        print '<div id="message" class="error"><p><strong>' . $error['message'] . '</strong></p></div>';                
-      }
-    }
+    <p>You should now have received a text message to <?php print $_GET['to']; ?>. If you have not received this, copy and paste the contents of the textbox below into a support request.</p>
     
-    settings_fields( 'clockwork_options' );
-    do_settings_sections( 'clockwork' );
-    submit_button();
-    ?>
+    <p><a href="<?php echo self::SUPPORT_URL; ?>" class="button" target="_blank">Contact Clockwork</a></p>
     
-    </form>
+    <br />
+    <textarea name="log" rows="25" cols="90" id="log"><?php print $data['log']; ?></textarea>
+    <?php } ?>
     
   </div>
   
@@ -40,5 +34,4 @@
       
     <img src="<?php echo plugins_url( 'images/badrobot.png', dirname( __FILE__ ) ); ?>" />
   </div>
-
 </div>
