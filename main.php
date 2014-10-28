@@ -161,7 +161,7 @@ class Clockwork_GravityForms_Plugin extends Clockwork_Plugin {
     $message = $meta['clockwork_message'];
     
     $message = str_replace( '%form%', $meta['title'], $message );
-    $message = preg_replace( '/%([0-9]+)%/e', '$entry[$1]', $message );
+    $message = preg_replace( '/%([0-9]+\.?[0-9]*)%/e', '$entry["$1"]', $message );
     
     if( $active == '1' && !empty( $phone ) )
     {    
