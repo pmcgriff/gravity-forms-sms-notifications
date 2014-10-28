@@ -4,9 +4,10 @@ Website: http://www.clockworksms.com/platforms/wordpress/?utm_source=wordpress&u
 Contributors: mediaburst, martinsteel, mediaburstjohnc
 Tags: SMS, Clockwork, Clockwork SMS, Mediaburst, Contact Form 7, Text Message
 Text Domain: wpcf7_sms
-Requires at least: 3.0.0
-Tested up to: 3.8.0
-Stable tag: 2.1.2
+Requires at least: 3.8.0
+Tested up to: 4.0
+Stable tag: 2.2
+License: MIT
 
 Works with the Gravity Forms plugin to send SMS notifications when somebody 
 submits your contact form, using the Clockwork API. 
@@ -64,6 +65,10 @@ of Ireland number would be entered 353870123456.
 1. SMS options for Gravity Forms.
 
 == Changelog ==
+
+= 2.2 =
+* Add support for sub fields like Name(First) Name(Last) e.g. use %1.3% and %1.6%
+* Tested with Wordpress 4.0
 
 = 2.1.2 =
 * WordPress 3.8 compatibility.
